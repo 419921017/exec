@@ -2,8 +2,6 @@ package quicksort
 
 func Quicksort(arr []int) []int {
 	if len(arr) < 2 {
-		// 基线条件:
-		// 为空或者只包含一个元素的数组是有序的
 		return arr
 	}
 	pivot := arr[0]
