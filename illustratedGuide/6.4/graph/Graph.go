@@ -22,14 +22,16 @@ func GraphMain() {
 func searchProcess(graph map[string][]string, name string) {
 	searchQueue := []string{}
 	searchQueue = append(searchQueue, graph[name]...)
+	searched := make(map[string]bool)
 	for len(searchQueue) > 0 {
 		person := searchQueue[0]
 		searchQueue = searchQueue[1:]
-		if personIsSeller(person) {
+		if !searched[person] && personIsSeller(person) {
 			fmt.Println(person + " is a mango seller")
 			return
 		} else {
 			searchQueue = append(searchQueue, graph[person]...)
+			searched[person] = true
 		}
 	}
 }
