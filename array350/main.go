@@ -5,6 +5,9 @@ import (
 	"sort"
 )
 
+// 第350题：两个数组的交集
+// 给定两个数组，编写一个函数来计算它们的交集。
+
 func intersect1(nums1 []int, nums2 []int) []int {
 	map0 := map[int]int{}
 	for _, v := range nums1 {
