@@ -11,25 +11,22 @@ function intersect1(num1, num2) {
     }
   });
 
+  let res = [];
+
   num2.forEach((item) => {
-    if (map[item]) {
-      map[item]++;
-    } else {
-      map[item] = 1;
+    if (map[item] > 0) {
+      map[item] -= 1;
+      res.push(item);
     }
   });
-
-  return Object.entries(map)
-    .filter(([key, value]) => value > 1)
-    .map((item) => item[0]);
+  return res;
 }
 
-// console.log('123', intersect1([1, 2, 2, 3], [1, 2, 3]));
+console.log('123', intersect1([1, 2, 2, 3], [2, 2]));
 
 function intersect2(num1, num2) {
   let x = 0,
-    y = 0,
-    z = 0;
+    y = 0;
 
   let res = [];
   num1 = num1.sort((a, b) => a - b);
@@ -48,4 +45,4 @@ function intersect2(num1, num2) {
   }
   return res;
 }
-console.log('123', intersect2([1, 2, 2, 3], [1, 2, 3]));
+console.log('123', intersect2([1, 2, 2, 3], [2, 2]));
